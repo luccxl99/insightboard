@@ -1,0 +1,10 @@
+# Expoe Postgres e Redis no host para desenvolvimento local (backend/frontend rodando fora do Docker).
+# Uso: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d postgres redis
+# Se a porta 5432 ja estiver ocupada na sua maquina: POSTGRES_PORT=5433 (e ajuste DB_URL do backend).
+services:
+  postgres:
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+  redis:
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
